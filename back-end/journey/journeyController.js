@@ -1,16 +1,17 @@
 const JOURNEY = require("./journeyModel");
-const mongoose = require('mongoose')
- module.exports = {
+const mongoose = require("mongoose");
+module.exports = {
   //add_Journey
 
   addJourney: async (req, res) => {
     const title = req.body.title;
     const description = req.body.description;
 
- 
     try {
-        Journey = new JOURNEY({
-title,description   });
+      Journey = new JOURNEY({
+        title,
+        description,
+      });
       await Journey.save();
       res.json(Journey);
     } catch (error) {
@@ -19,6 +20,7 @@ title,description   });
   },
 
   //getAllJourneys
+
   getAllJourneys: async (req, res) => {
     try {
       const Journey = await JOURNEY.find();
@@ -29,6 +31,7 @@ title,description   });
   },
 
   //deleteJourney
+
   deleteJourney: async (req, res) => {
     try {
       const Journey = await JOURNEY.findByIdAndDelete(req.params.id);
@@ -39,13 +42,12 @@ title,description   });
   },
 
   //updateJourney
+
   updateJourney: async (req, res) => {
     try {
-      const Journey = await JOURNEY.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        { new: true }
-      );
+      const Journey = await JOURNEY.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+      });
       res.json(Journey);
     } catch (error) {
       console.error(error.message);
@@ -53,11 +55,13 @@ title,description   });
   },
 
   //getJourney
-  getJourney: async (req, res) => { try {
-    const Journey = await JOURNEY.findById(req.params.id);
-    res.json(Journey);
-  } catch (error) {
-    console.error(error.message);
-  }
-  }
+  
+  getJourney: async (req, res) => {
+    try {
+      const Journey = await JOURNEY.findById(req.params.id);
+      res.json(Journey);
+    } catch (error) {
+      console.error(error.message);
+    }
+  },
 };

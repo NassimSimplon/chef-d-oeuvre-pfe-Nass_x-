@@ -1,16 +1,19 @@
 const ACHIEVEMENT = require("./achievementModel");
-const mongoose = require('mongoose')
- module.exports = {
+const mongoose = require("mongoose");
+module.exports = {
   //add_achievement
 
   addAchievement: async (req, res) => {
     const client = req.body.client;
     const formation = req.body.formation;
     const partner = req.body.partner;
- 
+
     try {
-        achievement = new ACHIEVEMENT({
-client,formation,partner   });
+      achievement = new ACHIEVEMENT({
+        client,
+        formation,
+        partner,
+      });
       await achievement.save();
       res.json(achievement);
     } catch (error) {
@@ -19,6 +22,7 @@ client,formation,partner   });
   },
 
   //getAllAchievement
+
   getAllAchievements: async (req, res) => {
     try {
       const achievement = await ACHIEVEMENT.find();
@@ -29,6 +33,7 @@ client,formation,partner   });
   },
 
   //deleteAchievement
+
   deleteAchievement: async (req, res) => {
     try {
       const achievement = await ACHIEVEMENT.findByIdAndDelete(req.params.id);
@@ -39,6 +44,7 @@ client,formation,partner   });
   },
 
   //updateAchievement
+
   updateAchievement: async (req, res) => {
     try {
       const achievement = await ACHIEVEMENT.findByIdAndUpdate(
@@ -53,11 +59,13 @@ client,formation,partner   });
   },
 
   //getAchievement
-  getAchievement: async (req, res) => { try {
-    const achievement = await ACHIEVEMENT.findById(req.params.id);
-    res.json(achievement);
-  } catch (error) {
-    console.error(error.message);
-  }
-  }
+  
+  getAchievement: async (req, res) => {
+    try {
+      const achievement = await ACHIEVEMENT.findById(req.params.id);
+      res.json(achievement);
+    } catch (error) {
+      console.error(error.message);
+    }
+  },
 };

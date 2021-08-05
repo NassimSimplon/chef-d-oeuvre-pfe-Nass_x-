@@ -1,18 +1,21 @@
 const TESTIMONY = require("./testimonyModel");
-const mongoose = require('mongoose')
-const axios = require('axios')
-  
+const mongoose = require("mongoose");
+const axios = require("axios");
+const dotenv = require("dotenv");
+dotenv.config();
+const PORT = process.env.PORT;
 
 module.exports = {
   //add_Testimony
 
   addTestimony: async (req, res) => {
-    const userID = mongoose.Types.ObjectId(req.body.userID);
+    const userId = mongoose.Types.ObjectId(req.body.userId);
     const comment = req.body.comment;
- 
+
     try {
       Testimonys = new TESTIMONY({
-       userID,comment
+        userId,
+        comment,
       });
       await Testimonys.save();
       res.json(Testimonys);
@@ -22,6 +25,7 @@ module.exports = {
   },
 
   //getAllTestimonys
+
   getAllTestimonys: async (req, res) => {
     try {
       const Testimonys = await TESTIMONY.find();
@@ -32,6 +36,7 @@ module.exports = {
   },
 
   //deleteTestimony
+
   deleteTestimony: async (req, res) => {
     try {
       const Testimonys = await TESTIMONY.findByIdAndDelete(req.params.id);
@@ -42,6 +47,7 @@ module.exports = {
   },
 
   //updateTestimonys
+
   updateTestimonys: async (req, res) => {
     try {
       const Testimonys = await TESTIMONY.findByIdAndUpdate(
@@ -56,22 +62,26 @@ module.exports = {
   },
 
   //getTestimony
+  
   getTestimony: async (req, res) => {
     try {
-      const Testimonys = await TESTIMONY.findById(req.params.id).then(
-          (TESTIMONY)=>{
-           axios.get(`http://localhost:8000/Nass_X/getUser/` + TESTIMONY.userID
-  ).then((response)=>{
-      var TestimonyObject= {nom: response.data.nom, prenom: response.data.prenom}
-      res.json(Testimonys)
-      })
- 
-
-          }
-      )
-
-     } catch (error) {
+      const Testimony = await TESTIMONY.findById(req.params.id).then(
+        (TESTIMONY) => {
+          axios
+            .get(`http://localhost:${PORT}/Nass_X/getUser/` + TESTIMONY.userId)
+            .then((response) => {
+              var testimonyObject = {
+                nom: response.data.nom,
+                prenom: response.data.prenom,
+                image: response.data.image,
+                comment: TESTIMONY.comment,
+              };
+              res.json(testimonyObject);
+            });
+        }
+      );
+    } catch (error) {
       console.error(error.message);
     }
-  }
+  },
 };

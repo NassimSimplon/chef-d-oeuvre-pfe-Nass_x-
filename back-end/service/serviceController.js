@@ -1,16 +1,19 @@
 const SERVICE = require("./serviceModel");
-const mongoose = require('mongoose')
- module.exports = {
+const mongoose = require("mongoose");
+module.exports = {
   //add_service
 
   addService: async (req, res) => {
     const title = req.body.title;
-    const image = req.body.image;
+    const icon = req.body.icon;
     const description = req.body.description;
- 
+
     try {
       service = new SERVICE({
-title,image,description      });
+        title,
+        icon,
+        description,
+      });
       await service.save();
       res.json(service);
     } catch (error) {
@@ -19,6 +22,7 @@ title,image,description      });
   },
 
   //getAllServices
+
   getAllServices: async (req, res) => {
     try {
       const service = await SERVICE.find();
@@ -29,6 +33,7 @@ title,image,description      });
   },
 
   //deleteService
+
   deleteService: async (req, res) => {
     try {
       const service = await SERVICE.findByIdAndDelete(req.params.id);
@@ -39,13 +44,12 @@ title,image,description      });
   },
 
   //updateService
+
   updateService: async (req, res) => {
     try {
-      const service = await SERVICE.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        { new: true }
-      );
+      const service = await SERVICE.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+      });
       res.json(service);
     } catch (error) {
       console.error(error.message);
@@ -53,11 +57,13 @@ title,image,description      });
   },
 
   //getService
-  getService: async (req, res) => { try {
-    const service = await SERVICE.findById(req.params.id);
-    res.json(service);
-  } catch (error) {
-    console.error(error.message);
-  }
-  }
+  
+  getService: async (req, res) => {
+    try {
+      const service = await SERVICE.findById(req.params.id);
+      res.json(service);
+    } catch (error) {
+      console.error(error.message);
+    }
+  },
 };

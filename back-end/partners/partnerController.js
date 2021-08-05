@@ -1,6 +1,6 @@
 const PARTNER = require("./patnerModel");
-const mongoose = require('mongoose')
- module.exports = {
+const mongoose = require("mongoose");
+module.exports = {
   //add_Partner
 
   addPartner: async (req, res) => {
@@ -12,13 +12,16 @@ const mongoose = require('mongoose')
     const linkedin = req.body.linkedin;
     const twitter = req.body.twitter;
 
-
-
-
- 
     try {
       Partner = new PARTNER({
-name,image,description ,facebook,instagram,twitter,linkedin   });
+        name,
+        image,
+        description,
+        facebook,
+        instagram,
+        twitter,
+        linkedin,
+      });
       await Partner.save();
       res.json(Partner);
     } catch (error) {
@@ -27,6 +30,7 @@ name,image,description ,facebook,instagram,twitter,linkedin   });
   },
 
   //getAllPartners
+
   getAllPartners: async (req, res) => {
     try {
       const Partner = await PARTNER.find();
@@ -37,6 +41,7 @@ name,image,description ,facebook,instagram,twitter,linkedin   });
   },
 
   //deletePartner
+
   deletePartner: async (req, res) => {
     try {
       const Partner = await PARTNER.findByIdAndDelete(req.params.id);
@@ -47,13 +52,12 @@ name,image,description ,facebook,instagram,twitter,linkedin   });
   },
 
   //updatePartner
+
   updatePartner: async (req, res) => {
     try {
-      const Partner = await PARTNER.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        { new: true }
-      );
+      const Partner = await PARTNER.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+      });
       res.json(Partner);
     } catch (error) {
       console.error(error.message);
@@ -61,11 +65,13 @@ name,image,description ,facebook,instagram,twitter,linkedin   });
   },
 
   //getPartner
-  getPartner: async (req, res) => { try {
-    const Partner = await PARTNER.findById(req.params.id);
-    res.json(Partner);
-  } catch (error) {
-    console.error(error.message);
-  }
-  }
+  
+  getPartner: async (req, res) => {
+    try {
+      const Partner = await PARTNER.findById(req.params.id);
+      res.json(Partner);
+    } catch (error) {
+      console.error(error.message);
+    }
+  },
 };

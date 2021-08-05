@@ -2,17 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 module.exports = mongoose.model(
-  "achievements",
+  "news",
   new Schema({
-    client: {
+    title: {
       type: String,
       required: true,
     },
-    formation: {
+    image: {
       type: String,
       required: true,
     },
-    partner: {
+    description: {
       type: String,
       required: true,
     },
