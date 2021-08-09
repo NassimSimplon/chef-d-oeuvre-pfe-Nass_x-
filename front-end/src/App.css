@@ -527,3 +527,207 @@ a:focus {
   }
 }
 
+/********** Réalisation Section ************/
+#nos{
+  background-color: transparent;
+}
+.Réalisation-attribute{
+  border-bottom: solid 4px #EF233C ;
+}
+#all-Réalisation{
+margin-left: 4rem;
+}
+
+@media (max-width: 575.98px) {
+  .service  #all-Réalisation {
+      font-size: 16px;
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+  }
+ 
+}
+#realisationSectionImage{
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-image:linear-gradient(rgba(239, 35, 59, 0.342), rgb(0, 0, 0)), url('./images/realisationSectionImage.jpg');
+  
+   }
+
+   /******* Nos Parcours Section ********/
+ .parcour {
+  position: relative;
+  padding: 45px 0 15px 0;
+}
+ 
+
+.parcour .timeline {
+  position: relative;
+  width: 100%;
+}
+
+.parcour .timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: #EF233C;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.parcour .timeline #timeline-item {
+  position: relative;
+  background: inherit;
+  width: 50%;
+  margin-bottom: 30px;
+}
+ 
+ 
+.parcour .timeline .i{
+  left: 0;
+  padding-right: 30px;
+}
+
+.parcour .timeline #timeline-item.right {
+  left: 50%;
+  padding-left: 30px;
+}
+
+.parcour .timeline #timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 48px;
+  right: -8px;
+  background: #ffffff;
+  border: 2px solid #EF233C;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.parcour .timeline #timeline-item.right::after {
+  left: -8px;
+}
+
+.parcour .timeline #timeline-item::before {
+content: '';
+position: absolute;
+width: 0;
+height: 0;
+top: 46px;
+right: 10px;
+z-index: 1;
+border: 10px solid;
+border-color: transparent transparent transparent #dddddd;
+}
+
+.parcour .timeline #timeline-item.right::before {
+left: 10px;
+border-color: transparent #dddddd transparent transparent;
+}
+
+.parcour .timeline .timeline-date {
+  position: absolute;
+  width: 100%;
+  top: 44px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #EF233C;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.parcour .timeline #timeline-item.left .timeline-date {
+  text-align: left;
+  left: calc(100% + 55px);
+}
+
+.parcour .timeline #timeline-item.right .timeline-date {
+  text-align: right;
+  right: calc(100% + 55px);
+}
+
+.parcour .timeline .timeline-text {
+  padding: 30px;
+  background: #ffffff;
+  position: relative;
+  border-right: 5px solid #dddddd;
+  box-shadow: 0 0 60px rgba(0, 0, 0, .08);
+}
+
+.parcour .timeline #timeline-item.right .timeline-text {
+  border-right: none;
+  border-left: 5px solid #dddddd;
+}
+
+.parcour .timeline .timeline-text h2 {
+  margin: 0 0 5px 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.parcour .timeline .timeline-text h4 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.parcour .timeline .timeline-text p {
+  margin: 0;
+  font-size: 16px;
+}
+
+@media (max-width: 767.98px) {
+  .parcour .timeline::after {
+      left: 8px;
+  }
+
+  .parcour .timeline #timeline-item {
+      width: 100%;
+      padding-left: 38px;
+  }
+  
+  .parcour .timeline #timeline-item.left {
+      padding-right: 0;
+  }
+  
+  .parcour .timeline #timeline-item.right {
+      left: 0%;
+      padding-left: 38px;
+  }
+
+  .parcour .timeline #timeline-item.left::after, 
+  .parcour .timeline #timeline-item.right::after {
+      left: 0;
+  }
+  
+  .parcour .timeline #timeline-item.left::before,
+  .parcour .timeline #timeline-item.right::before {
+      left: 18px;
+      border-color: transparent #dddddd transparent transparent;
+  }
+  
+  .parcour .timeline #timeline-item.left .timeline-date,
+  .parcour .timeline #timeline-item.right .timeline-date {
+      position: relative;
+      top: 0;
+      right: auto;
+      left: 0;
+      text-align: left;
+      margin-bottom: 10px;
+  }
+  
+  .parcour .timeline #timeline-item.left .timeline-text,
+  .parcour .timeline #timeline-item.right .timeline-text {
+      border-right: none;
+      border-left: 5px solid #dddddd;
+  }
+}
+

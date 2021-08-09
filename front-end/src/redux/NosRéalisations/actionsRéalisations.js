@@ -1,8 +1,8 @@
-import {GET_ALL_RÉALISATIONS_SUCCEED, GET_ALL_RÉALISATIONS_FAILED }from './actionsType'
+import {GET_ALL_RÉALISATIONS_SUCCEED, GET_ALL_RÉALISATIONS_FAILED }from './actionTypes'
 import {fetchAllRéalisations } from '../../Request/request'
 
 //Get All  Réalisations
-     export function getAllRéalisations() {
+     export const getAllRéalisations = () => {
         return dispatch => {
             fetchAllRéalisations()
             .then (réalisation =>dispatch (

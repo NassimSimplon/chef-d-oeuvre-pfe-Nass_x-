@@ -4,7 +4,7 @@ import "../App.css"
 const Navbar = () => {
     return (
         <div>
-         <div className="navbar navbar-expand-lg bg-light navbar-light">
+         <div className="navbar navbar-expand-lg bg-light navbar-light fixed-top">
             <div className="container-fluid">
                 <h1 href="index.html" className="navbar-brand">Nass<span className="spana">X</span></h1>
                 <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">

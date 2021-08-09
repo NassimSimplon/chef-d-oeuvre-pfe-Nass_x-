@@ -1,6 +1,6 @@
 import axios from "axios";
 import {
-  getAllServicesUrl,getAllRéalisationsUrl
+  getAllServicesUrl,getAllRéalisationsUrl,getAllNosParcoursDesFormationsUrl
 } from "./ApiUrls";
 
 //                                       service requests
@@ -23,6 +23,19 @@ export const fetchAllServices = () =>
 export const fetchAllRéalisations = () =>
   axios
     .get(getAllRéalisationsUrl, {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    })
+    .then((res) => res.data);
+
+
+  //                                  Nos parcours des formations requests
+  
+ //getAllNosParcoursDesFormations 
+
+ export const fetchAllParcours = () =>
+  axios
+    .get(getAllNosParcoursDesFormationsUrl, {
       Accept: "application/json",
       "Content-Type": "application/json",
     })

@@ -29,7 +29,7 @@ const ServiceSection = () => {
                     <h3> {el.title}</h3>
                     <p>{el.description}</p>
                   </div>
-                </div>
+                </div><br/>
               </div>
             ))}
           </div>
