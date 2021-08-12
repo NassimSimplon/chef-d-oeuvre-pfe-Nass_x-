@@ -7,25 +7,30 @@ module.exports = mongoose.model(
     nom: {
       type: String,
       required: true,
+      unique:true
     },
     prenom: {
       type: String,
-      required: true,
+      required: true 
+    },
+    sexe: {
+      type: String,
+      required: true 
     },
     telephone: {
       type: String,
-      required: true,
+      required: true
     },
     email: {
       type: String,
-      required: true,
+      required: true
     },
     password: {
       type: String,
-      required: true,
+      required: true
     },
     image: {
-      type: String,
+      type: String
     },
   })
 );

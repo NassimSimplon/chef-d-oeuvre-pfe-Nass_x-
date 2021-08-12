@@ -1,10 +1,11 @@
  import './App.css';
 import Home from './pages/Home';
 import Navbar from './shared/Navbar';
+import React from 'react'
 
 function App() {
   return (
-    <div className="App">
+    <div  >
    <Navbar />
    <Home/>
     </div>

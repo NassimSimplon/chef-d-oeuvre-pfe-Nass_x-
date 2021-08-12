@@ -6,30 +6,31 @@ const db = require("./config/db");
 db();
 const body = require("body-parser");
 app.use(express.json());
+
 //run cors
 const cors = require("cors");
 app.use(cors());
-//run service
+ //run service
 const service = require("./service/serviceRoute");
 app.use("/Nass_X", service);
-//run Achievement
-const achievement = require("./achievements/achievementRoute");
-app.use("/Nass_X", achievement);
-//run journey
-const journey = require("./journey/JourneyRoute");
-app.use("/Nass_X", journey);
-//run patner
-const partner = require("./partners/partnerRoute");
-app.use("/Nass_X", partner);
+//run Réalisation
+const Réalisation = require("./NosRéalisations/RéalisationRoute");
+app.use("/Nass_X", Réalisation);
+//run NosParcour
+const NosParcour = require("./NosParcours/NosParcourRoute");
+app.use("/Nass_X", NosParcour);
+//run Partenaire
+const Partenaire = require("./Partenaire/PartenaireRoute");
+app.use("/Nass_X", Partenaire);
 //run user
 const user = require("./user/userRoute");
 app.use("/Nass_X", user);
-//run testimony
-const testimony = require("./testimony/testimonyRoute");
-app.use("/Nass_X", testimony);
-//run news
-const news = require("./news/newsRoute");
-app.use("/Nass_X", news);
+//run Témoignage
+const Témoignage = require("./Témoignage/TémoignageRoute");
+app.use("/Nass_X", Témoignage);
+//run Actualité
+const Actualité = require("./Actualités/ActualitéRoute");
+app.use("/Nass_X", Actualité);
 
 // config env file
 const dotenv = require("dotenv");

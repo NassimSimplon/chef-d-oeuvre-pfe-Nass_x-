@@ -3,15 +3,15 @@ const router = express.Router()
  const service = require('./serviceController');
 
  // add service 
- router.post('/addService',service.addService)
+ router.post('/Service/add',service.addService)
  // get all services
- router.get('/getAllServices',service.getAllServices)
+ router.get('/Services/get',service.getAllServices)
  //delete service
- router.delete('/deleteService/:id',service.deleteService)
+ router.delete('/Service/delete/:id',service.deleteService)
  //update service 
- router.put('/updateService/:id',service.updateService)
+ router.put('/Service/update/:id',service.updateService)
  // get one service
- router.get('/getService/:id',service.getService)
+ router.get('/Service/get/:id',service.getService)
 
 
  module.exports = router

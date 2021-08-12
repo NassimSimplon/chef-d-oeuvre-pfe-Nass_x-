@@ -1,6 +1,6 @@
 import axios from "axios";
 import {
-  getAllServicesUrl,getAllRéalisationsUrl,getAllNosParcoursDesFormationsUrl
+  getAllServicesUrl,getAllRéalisationsUrl,getAllNosParcoursDesFormationsUrl,getAllPartenairesUrl
 } from "./ApiUrls";
 
 //                                       service requests
@@ -42,3 +42,14 @@ export const fetchAllRéalisations = () =>
     .then((res) => res.data);
 
 
+ //                                  Nos Partenaires requests
+  
+ //getAllPartenaires 
+
+ export const fetchAllPartenaires = () =>
+ axios
+   .get(getAllPartenairesUrl, {
+     Accept: "application/json",
+     "Content-Type": "application/json",
+   })
+   .then((res) => res.data);

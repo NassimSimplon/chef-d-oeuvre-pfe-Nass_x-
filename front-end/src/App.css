@@ -731,3 +731,32 @@ border-color: transparent #dddddd transparent transparent;
   }
 }
 
+
+
+/*********partenaire-section******/
+.partenaire-section{
+  background-color: #EF233C;
+  
+}
+
+.partenaires-title{
+ color: white;
+  font-size: 45px;
+  font-weight: 700;
+  margin-top: 2rem;
+ 
+ }
+ 
+ @media (max-width: 575.98px) {
+  .partenaire-section #carousel {
+    
+     width: 240rem;
+ 
+    
+  }}
+
+   
+ #carousel{
+   display: flex;
+   justify-content: space-around;
+ }

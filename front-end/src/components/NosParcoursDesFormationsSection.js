@@ -15,8 +15,8 @@ const NosParcour = () => {
       <div className="parcour mt-4" id="parcour">
         <div className="container">
           <header
-            className="section-header text-center wow zoomIn"
-            data-wow-delay="0.1s"
+            className="section-header text-center "
+            
           >
             <p>Nos</p>
             <h2>Parcours des Formations</h2>
