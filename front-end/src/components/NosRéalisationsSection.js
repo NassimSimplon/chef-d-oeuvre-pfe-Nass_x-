@@ -11,9 +11,9 @@ import { getAllRéalisations } from "../redux/NosRéalisations/actionsRéalisati
     dispatch(getAllRéalisations());
   }, []);
   return (
-    <div className="mt-4"  id="realisationSectionImage">
+    <div className="mt-2"  id="realisationSectionImage">
       <div className="service" id="service">
-        <div className="container mt-5">
+        <div className="container mt-3">
           <div className="section-header text-center  "  >
             <p id="nos"> Nos</p>
             <h2 className="text-white">Réalisations</h2>

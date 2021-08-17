@@ -740,11 +740,10 @@ border-color: transparent #dddddd transparent transparent;
 }
 
 .partenaires-title{
- color: white;
+ color: #ffffff;
   font-size: 45px;
   font-weight: 700;
-  margin-top: 2rem;
- 
+  
  }
  
  @media (max-width: 575.98px) {
@@ -754,9 +753,21 @@ border-color: transparent #dddddd transparent transparent;
  
     
   }}
-
-   
- #carousel{
-   display: flex;
-   justify-content: space-around;
+ 
+.partenaire-images{
+  width: 73%;
+  height: 8rem;
+   border-radius: 4%;
+   filter: blur(2px);
  }
+ .partenaire-images:hover{
+  filter: blur(0px);
+ }
+.slogon{
+  display: flex;
+  justify-content: center;
+  background-color: #EF233C;
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+}

@@ -1,5 +1,5 @@
 // globlobal Url
-const url = 'http://localhost:8000/Nass_X'
+const url = 'http://localhost:5000/Nass_X'
 
 // Services Urls
 export const addServiceUrl = `${url}/Service/add`

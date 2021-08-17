@@ -12,7 +12,7 @@ const NosParcour = () => {
 
    return (
     <div>
-      <div className="parcour mt-4" id="parcour">
+      <div className="parcour mt-2" id="parcour">
         <div className="container">
           <header
             className="section-header text-center "
