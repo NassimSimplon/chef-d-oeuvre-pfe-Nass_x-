@@ -1,6 +1,10 @@
 import axios from "axios";
 import {
-  getAllServicesUrl,getAllRéalisationsUrl,getAllNosParcoursDesFormationsUrl,getAllPartenairesUrl
+  getAllServicesUrl,
+  getAllRéalisationsUrl,
+  getAllNosParcoursDesFormationsUrl
+  ,getAllPartenairesUrl,
+  getAllTémoignagesUrl
 } from "./ApiUrls";
 
 //                                       service requests
@@ -49,6 +53,19 @@ export const fetchAllRéalisations = () =>
  export const fetchAllPartenaires = () =>
  axios
    .get(getAllPartenairesUrl, {
+     Accept: "application/json",
+     "Content-Type": "application/json",
+   })
+   .then((res) => res.data);
+   
+   
+   //                                  Témoignage requests
+  
+ //getAllTémoignages 
+
+ export const fetchAllTémoignages = () =>
+ axios
+   .get(getAllTémoignagesUrl, {
      Accept: "application/json",
      "Content-Type": "application/json",
    })

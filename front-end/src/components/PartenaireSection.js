@@ -25,24 +25,20 @@ const PartenaireSection = () => {
 
   return (
     <div className="partenaire-section">
-     
-      <br />
+      <br /> <br />
       <h1 className="partenaires-title text-center ">Partenaires</h1>
-
-     <br/>
-
-      <Container className="mt-1" >
+      <br /> <br />
+      <Container className="mt-1">
         <Slider {...settings}>
           {partenaires.map((el) => (
-            <Col className="mx-4">
+            <Col className="mx-4" key={el._id}>
               <img src={el.image} className="partenaire-images" />
             </Col>
           ))}
         </Slider>
       </Container>
       <br />
-      <br />
-      
+      <br /> <br /> <br />
     </div>
   );
 };

@@ -23,7 +23,7 @@ const NosParcour = () => {
           </header>
           <div className="timeline">
             {parcours.map((el) => (
-              <div
+              <div key={el._id}
                 id="timeline-item"
                 className={el.position}
                 data-wow-delay="0.1s"

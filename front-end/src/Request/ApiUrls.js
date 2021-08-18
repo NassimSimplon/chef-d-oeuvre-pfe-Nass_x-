@@ -1,5 +1,5 @@
 // globlobal Url
-const url = 'http://localhost:5000/Nass_X'
+const url = 'http://localhost:8000/Nass_X'
 
 // Services Urls
 export const addServiceUrl = `${url}/Service/add`
@@ -28,4 +28,11 @@ export const getAllPartenairesUrl = `${url}/Partenaires/get`
 export const deletePartenaireUrl = `${url}/Partenaire/delete/:id`
 export const updatePartenaireUrl = `${url}/Partenaire/update/:id` 
 export const getPartenaireUrl = `${url}/Partenaire/get/:id`
+
+//Témoignage
+export const addTémoignageUrl = `${url}/Temoignage/add`
+export const getAllTémoignagesUrl = `${url}/Temoignages/get`
+export const deleteTémoignageUrl = `${url}/Temoignage/delete/:id`
+export const updateTémoignageUrl = `${url}/Temoignage/update/:id` 
+export const getTémoignageUrl = `${url}/Temoignage/get/:id`
 

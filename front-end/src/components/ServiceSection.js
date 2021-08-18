@@ -20,10 +20,10 @@ const ServiceSection = () => {
           </div>
           <div className="row ">
             {service.map((el) => (
-              <div className="col-lg-6   ">
+              <div className="col-lg-6   " key={el._id}>
                 <div className="service-item">
                   <div className="service-icon">
-                    <i class={el.icon}></i>
+                    <i className={el.icon}></i>
                   </div>
                   <div className="service-text">
                     <h3> {el.title}</h3>

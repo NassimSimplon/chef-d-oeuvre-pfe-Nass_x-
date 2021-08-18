@@ -6,6 +6,7 @@ import RéalisationSection from "../components/NosRéalisationsSection";
 import NosParcour from "../components/NosParcoursDesFormationsSection";
 import PartenaireSection from "../components/PartenaireSection";
 import '../App.css'
+import TémoignageSection from "../components/TémoignageSection";
 const Home = () => {
   return (
     <div>
@@ -18,6 +19,8 @@ const Home = () => {
       <RéalisationSection />
       <NosParcour />
       <PartenaireSection />
+      
+      <TémoignageSection  />
     </div>
   );
 };
