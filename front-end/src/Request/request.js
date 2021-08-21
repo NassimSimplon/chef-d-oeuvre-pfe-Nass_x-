@@ -4,7 +4,8 @@ import {
   getAllRéalisationsUrl,
   getAllNosParcoursDesFormationsUrl
   ,getAllPartenairesUrl,
-  getAllTémoignagesUrl
+  getAllTémoignagesUrl,
+  getAllActualitésUrl
 } from "./ApiUrls";
 
 //                                       service requests
@@ -66,6 +67,19 @@ export const fetchAllRéalisations = () =>
  export const fetchAllTémoignages = () =>
  axios
    .get(getAllTémoignagesUrl, {
+     Accept: "application/json",
+     "Content-Type": "application/json",
+   })
+   .then((res) => res.data);
+
+
+   //                                  Actualités requests
+  
+ //getAllActualités
+
+ export const fetchAllActualités = () =>
+ axios
+   .get(getAllActualitésUrl, {
      Accept: "application/json",
      "Content-Type": "application/json",
    })

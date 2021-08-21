@@ -26,7 +26,10 @@ const PartenaireSection = () => {
   return (
     <div className="partenaire-section">
       <br /> <br />
-      <h1 className="partenaires-title text-center ">Partenaires</h1>
+      <div className='section-header text-center'>
+      <p  >Nos</p>
+      <h2 className="partenaires-title text-center ">Partenaires</h2>
+      </div>
       <br /> <br />
       <Container className="mt-1">
         <Slider {...settings}>

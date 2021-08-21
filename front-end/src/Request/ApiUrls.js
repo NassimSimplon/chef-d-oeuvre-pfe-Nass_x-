@@ -36,3 +36,12 @@ export const deleteTémoignageUrl = `${url}/Temoignage/delete/:id`
 export const updateTémoignageUrl = `${url}/Temoignage/update/:id` 
 export const getTémoignageUrl = `${url}/Temoignage/get/:id`
 
+
+
+//Témoignage
+export const addActualitéUrl = `${url}/Actualite/add`
+export const getAllActualitésUrl = `${url}/Actualites/get`
+export const deleteActualitésUrl = `${url}/Actualite/delete/:id`
+export const updateActualitésUrl = `${url}/Actualite/update/:id` 
+export const getActualitésUrl = `${url}/Actualite/get/:id`
+

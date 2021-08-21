@@ -23,13 +23,13 @@ const TémoignageSection = () => {
   return (
     <div class="témoignage  ">
       <br/>
-      <h1 className="temoignage-title text-center  ">Témoignage</h1>
+      <h1 className="temoignage-title text-center mt-2  ">Témoignage</h1>
 
       <div class="container mb-5">
         <div class="owl-carousel témoignages-carousel">
           <Slider {...settings} className="mt-5">
             {témoignage.map((el) => (
-              <div class="témoignage-item me-5 ">
+              <div class="témoignage-item me-5 " key={el._id}>
                 <div class="témoignage-img">
                   <img src={el.userImage} alt="Image" />
                 </div>

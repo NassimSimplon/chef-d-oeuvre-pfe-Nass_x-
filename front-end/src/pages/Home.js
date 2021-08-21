@@ -7,6 +7,7 @@ import NosParcour from "../components/NosParcoursDesFormationsSection";
 import PartenaireSection from "../components/PartenaireSection";
 import '../App.css'
 import TémoignageSection from "../components/TémoignageSection";
+import Actualités from "../components/ActualitésSection.js";
 const Home = () => {
   return (
     <div>
@@ -19,8 +20,8 @@ const Home = () => {
       <RéalisationSection />
       <NosParcour />
       <PartenaireSection />
-      
       <TémoignageSection  />
+      <Actualités />
     </div>
   );
 };
