@@ -6,7 +6,7 @@ module.exports = {
 
   addPartenaire : async (req, res) => {
     const name = req.body.name;
-    const image = '/' + req.file.fieldname +'/'+ req.file.filename;
+     const image = '/' + req.file.fieldname +'/'+ req.file.filename;
     const description = req.body.description;
     const facebook = req.body.facebook;
     const instagram = req.body.instagram;

@@ -9,10 +9,10 @@ module.exports = {
     const description = req.body.description;
 
     try {
-      service = new SERVICE({
+      service = await new SERVICE({
         title,
         icon,
-        description,
+        description
       });
       await service.save();
       res.json(service);
@@ -48,7 +48,7 @@ module.exports = {
   updateService: async (req, res) => {
     try {
       const service = await SERVICE.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
+        new: true
       });
       res.json(service);
     } catch (error) {

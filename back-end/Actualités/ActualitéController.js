@@ -5,14 +5,16 @@ module.exports = {
 
   addActualité: async (req, res) => {
     const title = req.body.title;
-    const image = req.body.image;
+    const image = '/' + req.file.fieldname +'/'+ req.file.filename;
     const description = req.body.description;
+    const date = req.body.date;
 
     try {
       Actualité = new ActualitéModel({
         title,
         image,
         description,
+        date
       });
       await Actualité.save();
       res.json(Actualité);
@@ -65,5 +67,5 @@ module.exports = {
     } catch (error) {
       console.error(error.message);
     }
-  },
+  }
 };

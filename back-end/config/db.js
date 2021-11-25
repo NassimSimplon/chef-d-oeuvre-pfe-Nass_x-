@@ -6,8 +6,7 @@ const db_connection = () => {
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true,
-        useFindAndModify: true,
+      
       }
     )
     .then(() => {

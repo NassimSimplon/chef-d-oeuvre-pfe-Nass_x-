@@ -16,5 +16,6 @@ module.exports = mongoose.model(
       type: String,
       required: true,
     },
-  })
+    date: { type: String },
+  } ,{timestamps:true})
 );

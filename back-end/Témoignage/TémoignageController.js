@@ -1,18 +1,23 @@
 const TémoignageModel = require("./TémoignageModel");
 const mongoose = require("mongoose");
-const axios = require("axios");
- 
-
+const fs = require('fs')
+  
 module.exports = {
   //add_Témoignage
 
   addTémoignage: async (req, res) => {
-    const userId = mongoose.Types.ObjectId(req.body.userId);
+    const userNom =  req.body.userNom
+    const userPrenom =  req.body.userPrenom
+
+    const userImage = req.body.userImage
+
     const comment = req.body.comment;
 
     try {
-      Témoignage = new TémoignageModel({
-        userId,
+      Témoignage = await new TémoignageModel({
+        userNom,
+        userPrenom,
+        userImage,
         comment
       });
       await Témoignage.save();
@@ -63,23 +68,10 @@ module.exports = {
   
   getTémoignage: async (req, res) => {
     try {
-      const Témoignage = await TémoignageModel.findById(req.params.id).then(
-        (TémoignageModel) => {
-          axios
-            .get(`http://localhost:${PORT}/Nass_X/getUser/` + TémoignageModel.userId)
-            .then((response) => {
-              var TémoignageObject = {
-                nom: response.data.nom,
-                prenom: response.data.prenom,
-                image: response.data.image,
-                comment: TémoignageModel.comment,
-              };
-              res.json(TémoignageObject);
-            });
-        }
-      );
-    } catch (error) {
+      const Témoignage = await TémoignageModel.findById(req.params.id)
+      res.json(Témoignage)
+      } catch (error) {
       console.error(error.message);
     }
-  },
+  }, 
 };

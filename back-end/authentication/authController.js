@@ -1,0 +1,88 @@
+const USER = require('../user/userModel')
+const bcrypt = require('bcrypt')
+ const jwt = require('jsonwebtoken');
+module.exports={
+  register:(req,res)=>{
+
+    USER.findOne({ email: req.body.email }).exec(async (error, user) => {
+      if (user)
+        return res.status(400).json({
+          error: "User already registered",
+        });
+
+        const nom = req.body.nom;
+        const prenom = req.body.prenom;
+        const sexe = req.body.sexe
+        const telephone = req.body.telephone;
+        const email = req.body.email;
+        const salt = await new bcrypt.genSalt(10)
+ const password = await new bcrypt.hash(req.body.password, salt);
+const image = '/image/image-1635988363457.png'
+       const _user = new USER({
+        nom ,
+        prenom,
+        telephone,
+        sexe,
+        email,
+        password ,
+        image
+      });
+      _user.save((error, user) => {
+        if (error) {
+          return res.status(400).json({
+            message: "Something went wrong",
+          });
+        }
+        if (user) {
+          return res.status(201).json({
+            message: "User created suceesfully !",
+            user
+          })
+        }
+      });
+    });
+      
+         
+  },
+    signIn : (req, res) => {
+        USER.findOne({ email: req.body.email }).exec(async (error, user) => {
+          if (error) return res.status(400).json({ error });
+          if (user) {
+            const verPass =  await new bcrypt.compare(req.body.password,user.password)
+             if (verPass && user.role === 'user') {
+              const token =  jwt.sign({_id:user._id,role:user.role,nom:user.nom,prenom:user.prenom,sexe:user.sexe,telephone:user.telephone,email:user.email,image:user.image},'MEARNSECRET',{expiresIn:'1h'})
+               res.status(200).json({
+                token 
+              });
+            } else {
+              return res.status(400).json({
+                message: "Invalid password !",
+              });
+            }
+          } else {
+            return res.status(400).json({ message: "Something went wrong" });
+          }
+        });
+      },
+      logIn : (req, res) => {
+        USER.findOne({ email: req.body.email }).exec(async (error, user) => {
+          if (error) return res.status(400).json({ error });
+          if (user) {
+            const verPass =  await new bcrypt.compare(req.body.password,user.password)
+             if (verPass ) {
+              const token =  jwt.sign({_id:user._id,role:user.role,nom:user.nom,prenom:user.prenom,sexe:user.sexe,telephone:user.telephone,email:user.email,image:user.image},'MEARNSECRET',{expiresIn:'1h'})
+               res.status(200).json({
+                token 
+              });
+            } else {
+              return res.status(400).json({
+                message: "Invalid password !",
+              });
+            }
+          } else {
+            return res.status(400).json({ message: "Something went wrong" });
+          }
+        });
+      }
+    
+    }

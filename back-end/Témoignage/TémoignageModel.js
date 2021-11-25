@@ -4,11 +4,20 @@ const Schema = mongoose.Schema;
 module.exports = mongoose.model(
   "Témoignages",
   new Schema({
-    userId: {
-      type: mongoose.Types.ObjectId
+    userNom: {
+      type:String,
+      required:true
+    },
+    userPrenom: {
+      type:String,
+      required:true
+    },
+    userImage:{
+type:String 
     },
     comment: {
-      type: String
+      type: String,
+      required:true
     },
   })
 );

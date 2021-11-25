@@ -4,12 +4,15 @@ const app = express();
 //run data_base
 const db = require("./config/db");
 db();
-const body = require("body-parser");
-app.use(express.json());
+ 
 
 //run cors
 const cors = require("cors");
 app.use(cors());
+app.use(express.json());
+//run authentification
+const authentification = require('./authentication/authRoutes')
+app.use("/Nass_X", authentification);
  //run service
 const service = require("./service/serviceRoute");
 app.use("/Nass_X", service);
@@ -31,6 +34,9 @@ app.use("/Nass_X", Témoignage);
 //run Actualité
 const Actualité = require("./Actualités/ActualitéRoute");
 app.use("/Nass_X", Actualité);
+//run Contact
+const Contact = require('./Contact/ContactRoutes');
+app.use("/Nass_X", Contact);
 
 // config env file
 const dotenv = require("dotenv");
