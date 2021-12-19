@@ -1,4 +1,4 @@
-const USER = require('../user/userModel')
+const USER = require('../user/userModel');
 const bcrypt = require('bcrypt')
  const jwt = require('jsonwebtoken');
 module.exports={
@@ -15,7 +15,7 @@ module.exports={
         const sexe = req.body.sexe
         const telephone = req.body.telephone;
         const email = req.body.email;
-        const salt = await new bcrypt.genSalt(10)
+        const salt = await new bcrypt.genSalt(10);
  const password = await new bcrypt.hash(req.body.password, salt);
 const image = '/image/image-1635988363457.png'
        const _user = new USER({
@@ -48,8 +48,8 @@ const image = '/image/image-1635988363457.png'
         USER.findOne({ email: req.body.email }).exec(async (error, user) => {
           if (error) return res.status(400).json({ error });
           if (user) {
-            const verPass =  await new bcrypt.compare(req.body.password,user.password)
-             if (verPass && user.role === 'user') {
+            const verPass =  await new bcrypt.compare(req.body.password,user.password);
+             if (verPass ) {
               const token =  jwt.sign({_id:user._id,role:user.role,nom:user.nom,prenom:user.prenom,sexe:user.sexe,telephone:user.telephone,email:user.email,image:user.image},'MEARNSECRET',{expiresIn:'1h'})
                res.status(200).json({
                 token 
